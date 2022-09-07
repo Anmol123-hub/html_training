@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment 1</title>
+    <script>
+        function back(source){
+            //***This method apply when we have to deal with ID***
+            //document.getElementById('container').style.backgroundColor = source.value; 
+
+            //***This method apply when we have to deal with CLASS***
+            var elements = document. getElementsByClassName('container');
+           
+            elements[0]. style. backgroundColor = source.value; 
+            
+
+    }
+    function fontC(source){
+        
+        //***This method apply when we have to deal with ID***
+        //document.getElementById('container').style.color = source.value
+
+
+        var elements = document. getElementsByClassName('container'); // get all elements.
+        elements[0]. style. color = source.value; // Changing the text color of each element
+         
+    }
+    </script>
+</head>
+<body>
+    <label> Set Background color
+        <input type="color" onchange="back(this)">
+    </label>
+    <br>
+    <label> Set Font color 
+        <input type="color" onchange="fontC(this)">
+    </label>
+    <div class = "container" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iure dignissimos id dolor esse corrupti, vitae corporis, tenetur sit voluptatibus aliquid adipisci voluptas doloribus placeat ab delectus quae veritatis laudantium?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt dolore autem at, repellat libero magnam quod fugiat ipsa, iste, aliquam dicta accusamus minima nam harum eaque ut debitis atque sequi!
+    </div>
+
+    
+</body>
+</html>

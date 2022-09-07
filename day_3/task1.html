@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+            display: block;
+            margin: 50px auto; 
+            background-color: rgb(66, 206, 238);
+        }
+    </style>
+
+</head>
+<body>
+    <canvas id = "can" width="500" height="500"></canvas>
+    <script>
+        var can = document.getElementById("can")
+        var ctx = can.getContext("2d")
+            //ctx.fillRect(10)
+        
+     
+            var x=20,y=250
+            // ctx.beginPath()
+            // ctx.strokeStyle = "red"
+            // ctx.fillStyle = "yellow"
+            // ctx.moveTo(x,y)
+            // ctx.lineTo(x+100,y)
+            // ctx.lineTo(x+100,y+100)
+            // ctx.lineTo(x,y+100)
+            // ctx.lineTo(x,y)
+            // ctx.fill()
+            // ctx.stroke()
+            setInterval(function(){
+            
+            ctx.beginPath()
+            ctx.clearRect(0,0,500,355)
+            ctx.strokeStyle = "red"
+            ctx.fillStyle = "yellow"
+            ctx.moveTo(x,y)
+            ctx.lineTo(x,y+100)
+            ctx.moveTo(x,y)
+            ctx.lineTo(x+440,y)
+            ctx.moveTo(x,y+100)
+            ctx.lineTo(x+100,y+100)
+            ctx.moveTo(x+440,y)
+            ctx.lineTo(x+340,y+100)
+            ctx.moveTo(x,y)
+            ctx.lineTo(x+215,y)
+            ctx.lineTo(x+215,y-170)
+            ctx.moveTo(x+215,y-170)
+            ctx.lineTo(x+290,y-170)
+            ctx.lineTo(x+290,y-100)
+            ctx.lineTo(x+216,y-100)
+            
+            
+            for(var i=10;i<=350;i+=10){
+                ctx.moveTo(i+x,250)
+                ctx.lineTo(i+x,350)
+            }
+            for(var i=250;i<=350;i+=10){
+                ctx.moveTo(x,i)
+                ctx.lineTo(350+x,i)
+            }
+            ctx.fill()
+            ctx.closePath()
+            ctx.stroke()
+            x+=10
+            if(x>500)
+            x=10
+           
+
+           
+        },100)
+
+
+           setInterval(function(){
+            ctx.beginPath()
+            
+            var t = Math.round(Math.random()*500)
+                var t1 = Math.round(Math.random()*500)
+                var red = Math.round(Math.random()*255)
+                var green = Math.round(Math.random()*255)
+                var blue = Math.round(Math.random()*255)
+                ctx.fillStyle = "rgb(0,0,"+blue+")"
+               ctx.arc(t,t1+350,20,0,Math.PI/180*360,true)
+               ctx.fill()
+               ctx.closePath()
+           },10)
+            
+
+     
+    </script>
+    
+</body>
+</html>

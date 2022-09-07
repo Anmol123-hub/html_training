@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Image</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas height="600" width="600" id="can"></canvas>
+    <img id="dirs" src="" >
+    <script>
+        // window.onload = function() {
+         var can = document.getElementById("can")
+         var ctx = can.getContext("2d")
+        // var img = document.getElementById("dirs");
+        //     ctx.drawImage(img,10,10)
+        // }
+        var img1 = new Image()
+            img1.src = "../day_2/images/doctorstrange.jpg"
+            img1.onload = function(){
+                //ctx.rotate(Math.PI/180 * 15)
+                ctx.drawImage(img1,0, 0)
+            }
+    </script>
+</body>
+</html>

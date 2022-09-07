@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessmemnt 2</title>
+    <script>
+        function storeAll(){
+        
+        
+        // alert(b1)
+        
+
+        var info = {
+                uname: document.getElementById("uname").value,
+                uemail: document.getElementById("uemail").value,
+                uphone: document.getElementById("uphone").value
+            }
+            
+            // k = "user"+c
+            //localStorage.setItem("user"+c,JSON.stringify(a))
+            
+        localStorage.setItem("user"+localStorage.length, JSON.stringify(info))
+            
+        }
+        function showAll(){
+             document.getElementById("ag").innerHTML = ""
+            for(var i=0;i<localStorage.length;i++){
+                document.getElementById("ag").innerHTML += "<option>"+JSON.parse(localStorage.getItem("user"+i)).uname+"</option>"
+            }
+        }
+        function make_table(){
+            document.getElementById("tbl").style.display = "block"
+
+            for(i=0;i<localStorage.length;i++){
+
+            if(JSON.parse(localStorage.getItem("user"+i)).uname == document.getElementById("ag").value){
+                var email = JSON.parse(localStorage.getItem("user"+i)).uemail
+                var phone = JSON.parse(localStorage.getItem("user"+i)).uphone
+                break
+            }
+            }
+            document.getElementById("user_name").textContent = document.getElementById("ag").value
+            document.getElementById("user_email").textContent = email
+            document.getElementById("user_phone").textContent = phone
+
+
+
+        }
+
+    </script>
+</head>
+<body onload="showAll()">
+    <form action="#" method="get">
+        <table border="1">
+            <tbody>
+                
+                <tr>
+                    <th> User name</th>
+                    <td><input id="uname" autofocus  type="text" placeholder="Enter full name"></td>
+                </tr>
+                <tr>
+                    <th> User Email</th>
+                    <td><input id="uemail"  type="email" required></td>
+                </tr>
+                <tr>
+                    <th> User Phone</th>
+                    <td><input id="uphone"  type="tel"></td>
+                </tr>
+                <tr>
+                    <th> &nbsp;</th>
+                    <td><input onclick="storeAll()"  type="submit" value="Register"></td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+        <select id="ag" onclick="make_table()"></select>
+        <table border="1" style="display: none;" id="tbl">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+                <tr>
+                    <td><span id="user_name"></span></td>
+                    <td><span id="user_email"></span></td>
+                    <td><span id="user_phone"></span></td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Shapes</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+            display: block;
+            margin: 50px auto; 
+        }
+    </style>
+
+</head>
+<body>
+    <canvas id = "can" width="500" height="500"></canvas>
+    <script>
+        function Rectangle(){
+            var x = 100
+        var y = 100
+     
+            ctx.beginPath()
+            //ctx.strokeStyle = "red"
+            ctx.fillStyle = "grey"
+            ctx.moveTo(x,y)
+            ctx.lineTo(x+100,y)
+            ctx.lineTo(x+100,y+100)
+            ctx.lineTo(x,y+100)
+            ctx.lineTo(x,y)
+            ctx.fill()
+            ctx.stroke()
+            var x = 100
+            var x1 = 300
+            var y1 = 300
+     
+            ctx.beginPath()
+            //ctx.strokeStyle = "red"
+           // ctx.fillStyle = "yellow"
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x1+100,y1)
+            ctx.lineTo(x1+100,y1+100)
+            ctx.lineTo(x1,y1+100)
+            ctx.lineTo(x1,y1)
+            ctx.fill()
+            ctx.stroke()
+        }
+        function line_D(){
+            // ctx.beginPath()
+            // //ctx.strokeStyle = "red"
+            // ctx.fillStyle = "grey"
+            // ctx.moveTo(300,300)
+            // ctx.lineTo(x+100,y)
+            // ctx.lineTo(x+100,y+100)
+            // ctx.lineTo(x,y+100)
+            // ctx.lineTo(x,y)
+            // ctx.fill()
+            // ctx.stroke()
+        }
+        var can = document.getElementById("can")
+        var ctx = can.getContext("2d")
+            //ctx.fillRect(10)
+        ctx.beginPath()
+        for(var i=0;i<=500;i+=10){
+            ctx.moveTo(i,0)
+            ctx.lineTo(500,i)
+        }
+        ctx.stroke()
+        Rectangle()
+        line_D()
+        
+        ctx.beginPath()
+        for(var i=0;i<=500;i+=10){
+            ctx.moveTo(0,i)
+            ctx.lineTo(i,500)
+        }
+        ctx.stroke()
+     
+    </script>
+    
+</body>
+</html>

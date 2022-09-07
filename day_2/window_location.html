@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Location</title>
+
+    <script>
+        var user = null
+        function getUserName(){
+            // user = document.getElementById("uname").value 
+            window.localStorage.user = document.getElementById("uname").value
+        }
+        function displayUserName(){
+            document.getElementById("log").textContent =  window.localStorage.user 
+        }
+    </script>
+</head>
+<body>
+
+    <input type="text" id="uname">
+    <button onclick="getUserName()">Add user</button>
+    <button onclick="displayUserName()">Get User name</button>
+    <h3>User Name- <span id="log"></span></h3>
+</body>
+</html>

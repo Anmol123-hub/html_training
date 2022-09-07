@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docent</title>
+    <script>
+        function getTexteghg(source){
+            var a = source.type+'op'
+            
+            document.getElementById(a).value = source.value;
+        }
+        function outputs(source){
+           
+            document.getElementById("prog").value = source.value;
+        }
+    </script>
+</head>
+<body>
+    
+    <table border="1">
+        <thead>
+            <tr style="text-align: left;">
+                <th>S.No.</th>
+                <th>Type</th>
+                <th>As rendered by browser</th>
+                <th>Value entered by the user</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Text</td>
+                <td><input type="text" oninput="getTexteghg(this)"></td>
+                <td><output id="textop"></output></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Search</td>
+                <td><input type="search" oninput="getTexteghg(this)"></td>
+                <td><output id="searchop"></output></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>time</td>
+                <td><input type="time" oninput="getTexteghg(this)"></td>
+                <td><output id="timeop"></output></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Datetime-local</td>
+                <td><input type="datetime-local" oninput="getTexteghg(this)"></td>
+                <td><output id="datetime-localop"></output></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Date</td>
+                <td><input type="date" oninput="getTexteghg(this)"></td>
+                <td><output id="dateop"></output></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>week</td>
+                <td><input type="week" oninput="getTexteghg(this)"></td>
+                <td><output id="weekop"></output></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>email</td>
+                <td><input type="email" oninput="getTexteghg(this)"></td>
+                <td><output id="emailop"></output></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Color</td>
+                <td><input type="color" oninput="getTexteghg(this)"></td>
+                <td><output id="colorop"></output></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Month</td>
+                <td><input type="month" oninput="getTexteghg(this)"></td>
+                <td><output id="monthop"></output></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Range</td>
+                <td><input type="range" oninput="getTexteghg(this)"></td>
+                <td><output id="rangeop"></output></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Tel</td>
+                <td><input type="tel" oninput="getTexteghg(this)"></td>
+                <td><output id="telop"></output></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>url</td>
+                <td><input type="url" oninput="getTexteghg(this)"></td>
+                <td><output id="urlop"></output></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Progress</td>
+                <td><input type="range" min="0" max="1" step="0.1" value="0" oninput="outputs(this)"></td>
+                <td><progress value="0" id="prog"></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Meter</td>
+                <td><meter low="0.3" optimum="0.2" high="0.8" value="0.9" ></td>
+                
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
