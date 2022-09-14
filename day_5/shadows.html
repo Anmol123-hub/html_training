@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows</title>
+    <style>
+        article{
+            height: 200px;
+            width: 400px;
+            text-align: center;
+            margin: 100px auto;
+            background-color: aliceblue;
+            line-height: 200px;
+            box-shadow: 10px 10px 10px red,
+                        -10px -10px 10px blue;
+                        border-radius: 50%;
+        }
+        /* article:hover{
+            box-shadow: 10px 10px 10px blue,
+                        -10px -10px 10px red;
+                        border-radius: 50%;
+            transform: skew(45deg,deg);
+        }  */
+        article h1{
+            text-shadow: 10px 10px 10px rgba(255, 0, 0, 0.5);
+        }
+
+        
+    </style>
+    <script>
+        var si = null
+        function h(){
+            x = 10
+            si=setInterval(function(){
+            document.getElementById("m").style.boxShadow = "10px 10px 10px blue,-10px -10px 10px red";
+            document.getElementById("m").style.transform = "skew("+x+"deg)";
+            x=x+10
+            if(x>150)
+            x=0
+         },100)
+        }
+        
+        function h1(){
+             document.getElementById("m").style.boxShadow = "10px 10px 10px red,-10px -10px 10px blue";
+            document.getElementById("m").style.transform = "skew(0deg)";
+             clearInterval(si)
+        }
+    </script>
+</head>
+<body>
+    <article id="m" onmouseover="h()" onmouseout="h1()">
+        <u><h1  >Anmol Varshney </h1></u>
+        
+    </article>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+   
+    <style>
+        .anmol{
+            font-size: 70px;
+        }
+        img{
+          
+            width: 100%;
+        }
+        .dot{
+            font-size: 20px;
+        }
+        a:link{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .one {
+            font-size: 26px;
+            text-align: center;
+            
+        }
+        article p{
+            padding: 20px;
+        }
+       
+
+        button{
+            height: 50px;
+            font-size: 20px;
+            width: 200px;
+            border-radius: 100px;
+        }
+    </style>
+    
+  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body >
+    
+    <div class="container" >
+        <b><article class="anmol text-center">A LIST APART</article></b>
+        <img class="responsive" id="a" src="https://149572954.v2.pressablecdn.com/wp-content/uploads/2013/01/ALA306_respdesign_300.png">
+
+        <script>
+            
+            window.addEventListener('resize', function(event){
+            if(window.innerWidth < 800){
+             
+                document.getElementById("a").src = "https://alistapart.com/wp-content/uploads/2019/05/rwd-3_1500_1078_81.jpg"
+            }
+            if(window.innerWidth > 800){
+             
+             document.getElementById("a").src = "https://149572954.v2.pressablecdn.com/wp-content/uploads/2013/01/ALA306_respdesign_300.png"
+         }
+        });
+        </script>
+       
+        <div class="row">
+            <h1 class = "col text-center">Responsive Web Design</h1>
+            <p class = "dot col-xs-12 text-center">by <b><a href="https://google.com">Ethan Marcotte</a></b><span class="posted-on"><time class="entry-date published" datetime="2010-05-25T09:59:00-04:00"> &#183; May 25, 2010</time></span></p>
+            <p class = "col-xs-12 text-center">Published in <a href="#"> CSS, Interaction Design, Layout & Grids, Mobile/Multidevice ,Responsive Design</a></p>
+        </div>
+      
+            <article class = "one">
+               <b> <p class = "col-xxl-12 col-lg-12">"The control which designers know in the print medium, and often desire in the web medium, is simply a function of the limitation of the printed page. We should embrace the fact that the web doesn’t have the same constraints, and design for this flexibility. But first, we must 'accept the ebb and flow of things.'"</p>
+            </article>
+            <button>100 Comments</button>
+   
+    
+    </div>
+</body>
+</html>

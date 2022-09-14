@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Selectors</title>
+    <style>
+        h1{
+            background-color: chartreuse;
+            
+        }
+        #box{
+            background-color: cyan;
+            color: rgb(255, 0, 43);
+        }
+        .player{
+            background-color: rgb(26, 26, 146);
+            color: rgb(239, 6, 41);
+        }
+        /* x class can override the player class */
+        .x{
+            background-color: rgb(185, 20, 20);
+            color: rgb(240, 240, 240);
+            /* width: 500px; */
+        }
+        /* this is the descendent selector in CSS */
+        .anmol h1{
+            background-color: aqua;
+            color: brown;
+            border: 1px dotted blue;
+        }
+        
+        </style>
+</head>
+<body>
+    <h1 >Class Selector</h1>
+    <p id="box"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut qui dignissimos perferendis totam neque corporis voluptatum, voluptatem ipsum, ex distinctio. Tempore molestiae consectetur nihil! Sapiente nulla impedit doloremque rem?</p>
+    <!-- if we put two classes then last one will override it -->
+    <p class="player x"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut qui dignissimos perferendis totam neque corporis voluptatum, voluptatem ipsum, ex distinctio. Tempore molestiae consectetur nihil! Sapiente nulla impedit doloremque rem?</p>
+    <p class="x"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut qui dignissimos perferendis totam neque corporis voluptatum, voluptatem ipsum, ex distinctio. Tempore molestiae consectetur nihil! Sapiente nulla impedit doloremque rem?</p>
+    
+    <div class="anmol">
+        <h1>Hello my name is Anmol</h1>
+    </div>
+    
+    <ul>
+        <li>List element 1</li>
+        <li>List element 2</li>
+        <li>List element 3</li>
+        <li>List element 4</li>
+        <li>List element 5</li>
+    </ul>
+</body>
+</html>
