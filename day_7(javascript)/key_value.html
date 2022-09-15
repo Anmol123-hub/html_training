@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in JavaScript</title>
+    <script>
+        
+        var favNum = [
+            {name : "Archies ", favNume:12 },
+            {name : "Anmol ", favNume: 2},
+            {name : "Sharan", favNume: 4},
+            {name : "Sneha ", favNume: 8},
+            {name : "Harshitha", favNume: 9},
+            {name : "Moulidhar", favNume: 13},
+            {name : "Jai Kumar", favNume: 6},
+            {name : "Pavan", favNume: 5},
+            {name : "Wasil", favNume: 7},
+            {name : "Saniya", favNume: 16},
+            {name : "Himani", favNume: 11},
+            {name : "Anirudh", favNume: 17},
+            {name : "Mihir", favNume: 22},
+            {name : "Vijay", favNume: 1}
+        ];
+        // function anmol(val1){
+        //     var i=0
+        //     if(i>favNum.length)
+        //     return 0
+        //     else{
+        //         document.getElementById("log").innerHTML +=  favNum[i].name
+        //         return anmol()
+        //     }
+
+
+        // }
+        function sortItOut(val1,val2){
+            if(val1.favNume > val2.favNume){
+                return 1
+            }
+           if(val1.favNume < val2.favNume){
+                return -1 
+            }
+            else{
+                return 0
+            }
+        }
+        function sortFun(){
+   favNum.sort(sortItOut)
+         //   anmol(favNum)
+    for(var i = 0; i<favNum.length;i++){
+            document.getElementById("log").innerHTML += "<li>"+ favNum[i].name+"</li>"
+    }
+  
+        }
+    </script>
+</head>
+<body>
+    <h1 >Number <span id="log"></span></h1>
+    <button onclick="sortFun()"> Sort It </button>
+</body>
+</html>
