@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .container{
+            border: 1px dotted black;
+            /* padding:10px auto; */
+            display: flex;
+justify-content: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <center><h2>Registration Form</h2></center>
+    <marquee ><h4 id="random_color" onmouseover="ran()">Please Fill The Form :)</h4></marquee>
+    <script>
+        function ran(){
+           setInterval(function(){
+            var red = Math.round(Math.random()*255)
+                var green = Math.round(Math.random()*255)
+                var blue = Math.round(Math.random()*255)
+              document.getElementById("random_color").style.color = "rgb("+red+","+green+","+blue+")"
+       
+           },1000)
+                 }
+    </script>
+    <div class="container"> 
+        <form action="#">
+        <table>
+            <tbody>
+                <tr>
+                    <th ><span style="color: red;">*</span> First Name:</th>
+                    <td style="padding-left:20px;"> <input autofocus style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px"><span style="color: red;">*</span> Last Name: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px;padding-right:15px;"><span style="color: red;">*</span> Job Title: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px;padding-right:1px;"><span style="color: red;">*</span> Work Email: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="email" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px;padding-right:1px;"><span style="color: red;">*</span> Company Name: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px"><span style="color: red;">*</span> Industry: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px"><span style="color: red;">*</span> Country: </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px"><span style="color: red;">*</span> How can we help? </th>
+                    <td style="padding-left:20px;padding-top:9px"> <input style="width:250px" type="text" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top:9px">Share Your Comments (optional):  </th>
+                    <td style="padding-left:20px;padding-top:9px"> <textarea style="width:250px" rows="4" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <!-- <th style="padding-right:-100px;padding-top:9px"><input type="checkbox" name="" id="">  </th> -->
+                    <td style="padding-top:9px;padding-left: 80px;"><input type="checkbox" style="padding-left: 100px;" required><span style="color: red;">*</span>  I have read and accept of the privacy statement</td>
+                </tr>
+                <tr>
+                    <!-- <th style="padding-right:-100px;padding-top:9px"><input type="checkbox" name="" id="">  </th> -->
+                    <td style="padding-top:9px;padding-left: 80px;"><input type="checkbox" style="padding-left: 100px;"> I would like to receive relevent news and <br> marketing communications from Valtech group<br >
+                    I am aware that I can unsubscribe at any time</td>
+                </tr>
+            </tbody>
+            
+        </table>
+
+    </div>
+    <br>
+    <center><button >Register Here</button></center>
+</form>
+    
+</body>
+</html>
