@@ -1,0 +1,191 @@
+@keyframes Anmol {
+    from{
+    background: linear-gradient(212deg, rgba(131,58,180,1) 0%, rgba(135,62,176,1) 1%, rgba(138,65,173,1) 2%, rgba(141,68,170,1) 4%, rgba(143,70,169,1) 5%, rgba(186,144,199,1) 7%, rgba(145,72,167,1) 9%, rgba(145,72,167,1) 10%, rgba(145,72,167,1) 11%, rgba(145,72,167,1) 12%, rgba(151,78,160,1) 12%, rgba(145,72,167,1) 13%, rgba(145,72,167,1) 14%, rgba(156,83,155,1) 14%, rgba(150,77,161,1) 16%, rgba(207,132,111,1) 60%, rgba(209,134,109,1) 62%, rgba(211,136,107,1) 64%, rgba(206,132,111,1) 65%, rgba(215,140,103,1) 68%, rgba(216,141,102,1) 69%, rgba(217,142,101,1) 70%, rgba(220,145,98,1) 72%, rgba(221,146,97,1) 73%, rgba(213,138,105,1) 75%, rgba(223,148,95,1) 75%, rgba(224,149,94,1) 76%, rgba(225,150,93,1) 77%, rgba(252,176,69,1) 100%);
+
+    }
+    to{
+        background: linear-gradient(212deg, rgba(186,144,199,1) 7%, rgba(98,162,167,1) 59%, rgba(79,166,160,1) 70%, rgba(72,167,158,1) 75%);  
+        border-radius: 5%;
+        border: 1px solid yellow;
+    }
+}
+@keyframes image {
+    from{
+        background-image: url('images/antman.jpg') ;
+   
+
+    }
+    to{
+   background-image: url('images/batman.jpg') ;
+      transform: scale(1.5);  
+    }
+}
+@keyframes image1 {
+    from{
+        background-image: url('images/antman.jpg') ;
+   
+
+    }
+    to{
+   background-image: url('images/iron3_tn.jpg') ;
+      transform: scale(1.5);  
+    }
+}
+header{ 
+    height: 100px;
+    background: linear-gradient(212deg, rgba(131,58,180,1) 0%, rgba(135,62,176,1) 1%, rgba(138,65,173,1) 2%, rgba(141,68,170,1) 4%, rgba(143,70,169,1) 5%, rgba(186,144,199,1) 7%, rgba(145,72,167,1) 9%, rgba(145,72,167,1) 10%, rgba(145,72,167,1) 11%, rgba(145,72,167,1) 12%, rgba(151,78,160,1) 12%, rgba(145,72,167,1) 13%, rgba(145,72,167,1) 14%, rgba(156,83,155,1) 14%, rgba(150,77,161,1) 16%, rgba(207,132,111,1) 60%, rgba(209,134,109,1) 62%, rgba(211,136,107,1) 64%, rgba(206,132,111,1) 65%, rgba(215,140,103,1) 68%, rgba(216,141,102,1) 69%, rgba(217,142,101,1) 70%, rgba(220,145,98,1) 72%, rgba(221,146,97,1) 73%, rgba(213,138,105,1) 75%, rgba(223,148,95,1) 75%, rgba(224,149,94,1) 76%, rgba(225,150,93,1) 77%, rgba(252,176,69,1) 100%);
+    color : aliceblue;
+    text-align: center;
+   
+
+}
+header:hover{
+    animation-name: Anmol;
+    animation-duration: 3s;
+}
+
+footer{ 
+    height: 50px;
+    background: linear-gradient(212deg, rgba(131,58,180,1) 0%, rgba(135,62,176,1) 1%, rgba(138,65,173,1) 2%, rgba(141,68,170,1) 4%, rgba(143,70,169,1) 5%, rgba(186,144,199,1) 7%, rgba(145,72,167,1) 9%, rgba(145,72,167,1) 10%, rgba(145,72,167,1) 11%, rgba(145,72,167,1) 12%, rgba(151,78,160,1) 12%, rgba(145,72,167,1) 13%, rgba(145,72,167,1) 14%, rgba(156,83,155,1) 14%, rgba(150,77,161,1) 16%, rgba(207,132,111,1) 60%, rgba(209,134,109,1) 62%, rgba(211,136,107,1) 64%, rgba(206,132,111,1) 65%, rgba(215,140,103,1) 68%, rgba(216,141,102,1) 69%, rgba(217,142,101,1) 70%, rgba(220,145,98,1) 72%, rgba(221,146,97,1) 73%, rgba(213,138,105,1) 75%, rgba(223,148,95,1) 75%, rgba(224,149,94,1) 76%, rgba(225,150,93,1) 77%, rgba(252,176,69,1) 100%);
+    color : aliceblue;
+    text-align: center;
+
+    margin: 10px;
+}
+footer:hover{
+    animation-name: Anmol;
+    animation-duration: 3s;
+}
+.one{
+    display: flex;
+}
+.two{
+   display: flex;
+    margin-top: -100px;
+}
+.three{
+   display: flex;
+    
+}
+
+h1{
+    margin: 0px;
+}
+
+.box1{
+   margin: 10px;
+   height: 200px;
+   width: 440px;
+   border: 2px solid;
+   background-image: url('images/antman.jpg') ;
+   background-repeat: round;
+  
+}
+.box1:hover{
+    animation-name: image;
+    animation-duration: 2s;
+}
+
+.box2{
+    margin: 10px;
+    height: 300px;
+    width: 400px;
+    background-image: url('images/batman1.jpg') ;
+   background-repeat: round;
+    border: 2px solid;
+    
+}
+.box2:hover{
+    animation-name: image1;
+    animation-duration: 2s;
+    
+}
+.box3{
+    margin: 10px;
+    height: 200px;
+    width: 440px;
+    border: 2px solid;
+    background-image: url('images/captainamerica.jpg') ;
+   background-repeat: round;
+}
+.box3:hover{
+    animation-name: image;
+    animation-duration: 2s;
+}
+.box4{
+    margin-left: 10px;
+    margin-top: 110px;
+    height: 100px;
+    width: 400px;
+    border: 2px solid;
+    background-image: url('images/deadpool.jpg') ;
+   background-repeat: round;
+}
+.box4:hover{
+    animation-name: image;
+    animation-duration: 2s;
+}
+.box5{
+    margin: 10px;
+    height: 100px;
+    width: 740px;
+    border: 2px solid;
+    background: radial-gradient(circle, rgba(95,185,149,1) 18%, rgba(199,178,144,1) 35%, rgba(88,124,164,1) 58%, rgba(72,167,158,1) 75%);
+   background-repeat: round;
+}
+.box5:hover{
+    animation-name: Anmol;
+    animation-duration: 2s;
+}
+.box6{
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    border: 2px solid;
+    background-image: url('images/falcon.jpg') ;
+   background-repeat: round;
+}
+.box6:hover{
+    animation-name: image;
+    animation-duration: 2s;
+}
+.box7{
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    border: 2px solid;
+    background-image: url('images/blackwidow.jpg') ;
+   background-repeat: round;
+}
+.box7:hover{
+    animation-name: image;
+    animation-duration: 2s;
+}
+.box8{
+    margin: 10px;
+    margin-left: 20px;
+    height: 100px;
+    width: 740px;
+    border: 2px solid;
+    background-image: url('images/joker.jpg') ;
+   background-repeat:round;
+}
+.box8:hover{
+    animation-name: image1;
+    animation-duration: 2s;
+}
+body{
+    width: 900px;
+    
+    border: 2px solid;
+    margin: 100px auto;
+    position: relative;
+  
+}
+#bodh{
+    margin: 10px;
+    padding: 5px;
+    line-height: 100px;
+}
