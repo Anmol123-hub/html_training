@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <style>
+      #all {
+        height: 100px;
+        width: 400px;
+        background-color: cyan;
+      }
+    </style>
+    <script>
+      //Creating an array of a-z alphabets
+      var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+      //this function will display all the elements
+      function showAll() {
+        document.getElementById('ya').style.display = 'block'
+        document.getElementById('btn').style.display = 'block'
+        document.getElementById('howmuch').style.display = 'block'
+        document.getElementById('how').style.display = 'block'
+        document.getElementById('all').style.display = 'block'
+      }
+      //this function checks which radio is selected
+      function setFun(val) {
+        if (val == 'upper') {
+          alphabets = alphabets.map(function(x) {
+            return x.toUpperCase();
+          })
+          showAll()
+          document.getElementById('show').innerHTML = ""
+          document.getElementById('show').innerHTML += alphabets
+        } else {
+          alphabets = alphabets.map(function(x) {
+            return x.toLowerCase();
+          })
+          showAll()
+          document.getElementById('show').innerHTML = ""
+          document.getElementById('show').innerHTML += alphabets
+        }
+      }
+      //this function will generate user defined number of alphabets
+      function getRandomItem(val) {
+        if (val > 26) {
+          alert('Value should not greater than 26')
+          return "not allowed"
+        } else {
+          var arr = new Array()
+          for (var i = 0; i < val; i++) {
+            var randomIndex = Math.floor(Math.random() * alphabets.length)
+            var item = alphabets[randomIndex]
+            arr.push(item)
+          }
+          return arr
+        }
+      }
+      //this function will put all the generated alphabets in container
+      function generate() {
+        var randomNumber = document.getElementById('howmuch').value
+        var randomItem = getRandomItem(randomNumber)
+        document.getElementById('all').innerHTML = randomItem
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Choose a criteria</h1>
+    <input onclick="setFun('upper')" type="radio" name="upper" id="">Upper Alphabets <input onclick="setFun('lower')" type="radio" name="upper" id="">Lower Alphabets <br>
+    <h2 style="display: none;" id="ya">Your Alphabets </h3>
+      <div id="show"></div>
+      <BR></BR>
+      <span style="display: none;" id="how">How many alphabets you want-></span>
+      <input style="display: none;" type="text" id="howmuch">
+      <BR></BR>
+      <button style="display: none;" id="btn" onclick="generate()">Generate</button>
+      <br>
+      <div id="all" style="display: none;"></div>
+  </body>
+</html>
