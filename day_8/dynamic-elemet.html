@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic elements</title>
+    <style>
+        .container{
+            margin: auto;
+            height: 500px;
+            width: 500px;
+            overflow: auto;
+            background-color: aquamarine;
+        }
+        .container div{
+            margin: 10px;
+            height: 100px;
+            width: 100px;
+            float: left;
+            background-color: rgb(226, 49, 49);
+        }
+    </style>
+    <script>
+        function removeHandler(){
+            document.getElementsByTagName('button')[0].removeEventListener("click",clickHandler)
+        }
+        function clickHandler(){
+            var count = Number(document.getElementsByClassName('container')[0].lastChild.textContent)
+            var a = document.createElement("div")
+            a.textContent = count +1
+        
+            document.getElementsByClassName('container')[0].appendChild(a)
+        }
+        function init(){
+            document.getElementsByTagName('button')[0].addEventListener("click",clickHandler)
+            document.getElementsByTagName('button')[1].addEventListener("click",removeHandler)
+        }
+        document.addEventListener("DOMContentLoaded",init)
+    </script>
+</head>
+<body>
+    <button>Add div</button>
+    <button>Remove Click</button>
+    <div class="container">
+
+    </div>
+</body>
+</html>
