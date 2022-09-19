@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add or Remove</title>
+    <style>
+        .container{
+            margin: auto;
+            height: 500px;
+            width: 500px;
+            overflow: auto;
+            background-color: aquamarine;
+        }
+        .container div{
+            margin: 10px;
+            height: 100px;
+            color: white;
+            line-height: 100px;
+            width: 100px;
+            text-align: center;
+            float: left;
+            background-color: rgb(226, 49, 49);
+        }
+    </style>
+    <script>
+        count = 1
+        function removeDivFromBack(){
+            var box = document.getElementsByClassName('container')[0].lastChild
+            document.getElementsByClassName('container')[0].removeChild(box)
+        }
+        function removeDivFromFront(){
+            var box = document.getElementsByClassName('container')[0].firstChild
+            document.getElementsByClassName('container')[0].removeChild(box)
+        }
+        function addDiv(){
+            var a = document.createElement("div")
+            a.textContent = count
+            document.getElementsByClassName('container')[0].appendChild(a)
+            count++
+        }
+        function init(){
+            document.getElementsByTagName('button')[0].addEventListener("click",addDiv)
+            document.getElementsByTagName('button')[1].addEventListener("click",removeDivFromFront)
+            document.getElementsByTagName('button')[2].addEventListener("click",removeDivFromBack)
+        }
+        document.addEventListener("DOMContentLoaded",init)
+    </script>
+</head>
+<body>
+    <button>Add Div</button>
+    <button>Remove Div From First</button>
+    <button>Remove Div From Last</button>
+    <div class="container"></div>
+</body>
+</html>
