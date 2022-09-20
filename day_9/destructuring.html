@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+    <script>
+        var hero = {
+            firstname: "Anmol",
+            lastname: "varshney",
+            city: "Badaun",
+            state: "Uttar Pradeh"
+        }
+        var {firstname:myfirst,lastname:mylast,city:mycity,state:mystate} = hero
+        console.log(myfirst)
+        myfirst = "Aastha"
+        console.log(myfirst)
+
+        function getfavHeroes(){
+            return ["Batman","Superman","Spiderman","Antman"]
+        }
+        var [a,b,c,d] = getfavHeroes()
+        console.log(a,b,c,d)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

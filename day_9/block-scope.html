@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Scope</title>
+</head>
+<script>
+    var hero = {
+        title:"Batman",
+        power:7
+    }
+    let hero1 = {
+        title:"Batman",
+        power:7
+    }
+    console.log(hero)
+    hero.food = "Bread"
+    function hello(){
+        hero1.weakness = "Nothing"
+        console.log(hero1)
+    }
+    hello()
+    console.log(hero1)
+</script>
+<body>
+    
+</body>
+</html>

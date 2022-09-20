@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+    <script>
+        //ECMA 5 or es3
+       /* function encrypt(){
+            let a = ""
+            for(var i=0;i<arguments.length;i++){
+                a+=arguments[i]+"agadfghsgh"
+            }
+            console.log(a)
+        }*/
+
+        //ECMA 6 or es5
+        
+        /*function encrypt(...nums){
+            let a = ""
+            for(var i=0;i<nums.length;i++){
+                a+=nums[i]+"agadfghsgh"
+            }
+            console.log(a)
+        }*/
+        function encrypt(...nums){
+            return nums.reduce(function(initval,val){
+                 //console.log("Initial Value->",initval,"Value->",val)
+                 //console.log(initval + val+"sadfgsadf")
+                 return initval + val +"dafghsadfj"
+            },"")
+        }
+        
+       console.log(encrypt("Anmol"))
+       console.log(encrypt("Anmol","varshney"))
+       console.log(encrypt("Anmol","Shaan","Archies"))
+       console.log(encrypt("Anmol"))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
