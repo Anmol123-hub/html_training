@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game</title>
+    <style>
+        @keyframes Anmol {
+            from {
+                height: 50px;
+            }
+
+            to {
+                transform: scale(1.1);
+                color: white;
+                background: rgb(2, 0, 36);
+                background: linear-gradient(90deg, rgba(2, 0, 36, 0.5410539215686274) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            }
+        }
+
+        .container {
+            margin: 100px auto;
+            background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+            padding: 20px;
+            width: 550px;
+
+            height: 660px;
+            border: 2px solid black;
+        }
+
+        .box {
+            margin: 100px auto;
+            color: aliceblue;
+        }
+
+        .box p {
+            text-align: center;
+            border: 2px solid white;
+            padding: 20px;
+            font-size: 25px;
+            font-weight: bold;
+
+        }
+
+        .box img {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            display: block;
+        }
+
+        .box h1 {
+            margin-top: -100px;
+            display: block;
+            padding-top: 0px;
+
+        }
+
+        .box h3,
+        h2 {
+            border: 2px dotted white;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .box h2 {
+            border: 2px dashed white;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .box button {
+
+            height: 50px;
+            border-radius: 20%;
+            width: 150px;
+            font-size: 19px;
+        }
+
+        .box button:hover {
+            animation-name: Anmol;
+            animation-duration: 1s;
+        }
+
+        .box #first_show ul {
+            border: 2px solid white;
+            font-size: 30px;
+            margin: 20px, auto;
+        }
+
+        .box #first_show h4 {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+
+        var time = 1000, mt = null, si = null,clickHappen = false
+        var point = 0
+        var randomNumber = 0
+        var randomImageNumber = 0
+        var nameA = ["Hulk", "IronMan", "AntMan", "CaptainAmerica"]
+        var locations = ["images/antman.jpg", "images/ironman.jpg", "images/hulk.jpg", "images/captainamerica.jpg"]
+        var count = 1
+
+        function clearSetInterval() {
+            clearInterval(mt)
+            clearInterval(si)
+        }
+        function winner() {
+
+            if (point >= 3) {
+                clearInterval(mt)
+                clearInterval(si)
+                window.setTimeout(function () { alert("You win") }, 90)
+                document.getElementsByTagName("button")[0].removeEventListener("click", matchImage)
+                document.getElementsByTagName("button")[1].removeEventListener("click", notMatchImage)
+                document.getElementById("one_button").style.display = "block"
+                document.getElementById("two_buttons").style.display = "none"
+            }
+            else if (point < 0 ) {
+                alert("You loose")
+                clearSetInterval()
+                document.getElementsByTagName("button")[0].removeEventListener("click", matchImage)
+                document.getElementsByTagName("button")[1].removeEventListener("click", notMatchImage)
+                document.getElementById("one_button").style.display = "block"
+                document.getElementById("two_buttons").style.display = "none"
+
+            }
+            }
+        
+
+        function initialStart() {
+            winner()
+            
+            
+                count = 1
+                randomNumber = Math.floor(Math.random() * nameA.length)
+                randomImageNumber = Math.floor(Math.random() * locations.length)
+                document.getElementById("name").innerHTML = nameA[randomNumber]
+                document.getElementById("putImage").src = locations[randomImageNumber]
+
+
+                document.getElementById("time").innerHTML = count
+                mt = setInterval(function () {
+                    clickHappen = false
+                    document.getElementById("time").innerHTML = count
+                    count++
+                }, time)
+                si = setInterval(function () {
+                    randomNumber = Math.floor(Math.random() * nameA.length)
+                    randomImageNumber = Math.floor(Math.random() * locations.length)
+
+                    document.getElementById("name").innerHTML = nameA[randomNumber]
+                    document.getElementById("putImage").src = locations[randomImageNumber]
+                    if(!clickHappen){
+                        window.setTimeout(function () { alert("You loose you have to choose within 5 seconds") }, 90)
+                        
+                        clearSetInterval()
+                        document.getElementsByTagName("button")[0].removeEventListener("click", matchImage)
+                document.getElementsByTagName("button")[1].removeEventListener("click", notMatchImage)
+                document.getElementById("one_button").style.display = "block"
+                document.getElementById("two_buttons").style.display = "none"
+
+                    }
+                    count = 1
+                }, time * 5)
+            }
+        
+
+
+        function matchImage() {
+
+            clickHappen = true
+            //console.log(nameA[randomNumber].toLocaleLowerCase())
+            //console.log(locations[randomImageNumber].toLocaleLowerCase())
+
+
+
+            if (locations[randomImageNumber].match(nameA[randomNumber].toLocaleLowerCase())) {
+                //console.log("Yes")
+                point += 1
+                if(point>=0)
+                document.getElementById("points").innerHTML = point
+                clearSetInterval()
+                initialStart()
+
+            } else {
+                point -= 1
+                if(point>=0)
+                document.getElementById("points").innerHTML = point
+                clearSetInterval()
+                initialStart()
+                
+            }
+        }
+
+        function notMatchImage() {
+            clickHappen = true
+
+            if (!locations[randomImageNumber].match(nameA[randomNumber].toLocaleLowerCase())) {
+                //console.log("Yes")
+                point += 1
+                if(point>=0)
+                document.getElementById("points").innerHTML = point
+                clearInterval(mt)
+                clearInterval(si)
+                winner()
+                
+
+            } else {
+                point -= 1
+                if(point>=0)
+                document.getElementById("points").innerHTML = point
+                clearSetInterval()
+                winner()
+              
+            }
+        }
+
+
+        function showSecondScreen() {
+            
+            initialStart()
+            document.getElementById("first_show").style.display = "none"
+            document.getElementById("show").style.display = "block"
+        }
+
+        function init() {
+            
+            document.getElementById("show").style.display = "none"
+            document.getElementById("one_button").style.display = "none"
+
+            if(point>=0)
+            document.getElementById("points").innerHTML = point
+            document.getElementsByTagName("button")[0].addEventListener("click", showSecondScreen)
+            document.getElementsByTagName("button")[1].addEventListener("click", matchImage)
+            document.getElementsByTagName("button")[2].addEventListener("click", notMatchImage)
+            document.getElementsByTagName("button")[3].addEventListener("click", () => {
+                location.reload()
+            })
+
+        }
+
+        document.addEventListener("DOMContentLoaded", init)
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Guesssing Game</h1>
+            <div id="first_show">
+                <h4>Game Rules</h4>
+                <ul>
+                    <li>You have to guess the right image</li>
+                    <li>You have only 5 seconds to guess</li>
+                    <li>On each right guess you will get 1 point</li>
+                    <li>On each wrong guess you will loose 1 point</li>
+                    <li>Score 10 points to win</li>
+                </ul>
+                <center><button id="main_start">Start Playing</button></center>
+
+            </div>
+            <div id="show">
+                <h3>Timer- <span id="time"></span></h3>
+                <p id="name"></p>
+                <img id="putImage" align="center">
+                <br>
+                <h2>Your points <span id="points"></span></h2>
+                <hr>
+                <div id="two_buttons">
+                    <center><button>True</button>
+                        <button>False</button>
+                    </center>
+                </div>
+                <div id="one_button">
+                    <center><button>replay</button>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
