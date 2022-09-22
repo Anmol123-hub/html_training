@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterators Part 2</title>
+    <script>
+        var favNums = [1,2]
+        setInterval (function(){
+            favNums.push(Math.round(Math.random()*20))
+            document.getElementById("log").innerText = favNums.join()
+        },1000)
+        var itr = favNums.values()
+        function show(){
+            console.log(itr.next().value)
+        }
+    </script>
+</head>
+<body>
+    <button onclick="show()">Generate</button>
+    <h1>Number- </h1>
+    <p id="log"></p>
+</body>
+</html>

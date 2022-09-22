@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeilds</title>
+    <script>
+        var avengers = ['Ironman','Hulk','Dr Strange','Thor']
+        
+        function *myFun(){
+            for (let y of avengers)
+            yield y
+
+        }
+        var fun = myFun()
+        console.log(fun.next().value)
+        console.log(fun.next().value)
+        console.log(fun.next().value)
+        console.log(fun.next().value)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

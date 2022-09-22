@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+    <script>
+        class myFamily{
+            fname = ""
+            constructor(fatherName){
+                this.fname = fatherName
+            }
+            sayname(){
+                return this.fname
+            }
+
+        }
+         class anmol extends myFamily{
+            firstname = "Default"
+            lastname = "Default"
+            #hobby = "chess"
+            static version = 1001
+            constructor(a,b,c){
+                super(c)
+                this.firstname = a
+                this.lastname = b
+            }
+            fullname(){
+                return this.firstname + " " + this.lastname 
+            }
+            static saypower(){
+                return 7 
+            }
+            get hobby(){
+                return this.#hobby
+            }
+            set hobby(nhobby){
+                this.#hobby = nhobby 
+            }
+        }
+
+        var hero = new anmol("Anmol","Varshney","Nitesh")
+        console.log(hero.sayname())
+        console.log(hero.fname)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

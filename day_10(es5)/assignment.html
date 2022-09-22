@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-promise</title>
+    <script>
+         var promise1 = function(){ 
+         return new Promise(function(resolve,reject){
+            setTimeout(function(){
+                
+                if(true){
+                    resolve((console.log("Promise resolved"),promise2()))
+                }
+                else{
+                    reject("Promise rejected")
+                }
+            },2000)
+        })
+        }
+            var promise2=function(){
+            return new Promise(function(resolve,reject){
+                    setTimeout(function(){
+                    if(true){
+                        resolve("Promise inner resolved")
+                    }
+                    else{
+                        reject("Promise inner rejected")
+                    }
+                },4000)
+            
+            })
+        }
+        
+    
+        promise1().then(function(res){
+            console.log(res)
+        }).catch(function(err){
+                console.log(err)
+        }).finally(function(){
+            console.log("ok")
+        })
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

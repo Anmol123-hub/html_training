@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Extended</title>
+    <script>
+        var hero = Object.create(null)
+        Object.defineProperty(hero,"title",{value:"Batman",writable:true,configurable:false})
+        console.log(hero.title)
+        hero.title = "joker"
+        console.log(hero.title)
+        Object.defineProperty(hero,"title",{value:"joker",writable:true})
+        console.log(hero.title)
+        hero.title = "Anmol"
+        console.log(hero.title)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterators</title>
+    <script>
+        var favNums = [1,3,6,8,2,4,5]
+        var itr = favNums[Symbol.iterator]()
+        //var itr = favNums.values()
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+        console.log(itr.next())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

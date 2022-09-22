@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Promises</title>
+    <script>
+        var firstPromise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(true){
+                    resolve("First one resolved")
+                }
+                else{
+                    reject("Reject first one")
+                }
+            },3000)
+        })
+        var secondPromise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(true){
+                    resolve("First one resolved")
+                }
+                else{
+                    reject("Reject first one")
+                }
+            },2000)
+        })
+        var thirdPromise = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                if(true){
+                    resolve("First one resolved")
+                }
+                else{
+                    reject("Reject first one")
+                }
+            },1000)
+        })
+        Promise.any([firstPromise,secondPromise,thirdPromise])
+        .then(function(mes){
+            console.log(mes)
+        }).catch(function(err){
+            console.log(err)
+        }).finally(function(){
+            console.log("All done")
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
