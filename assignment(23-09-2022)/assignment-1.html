@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <style>
+        canvas{
+            margin: auto;
+            display: block;
+            border: 2px solid black;  
+        }
+    </style>
+</head>
+<body>
+    <canvas id = "can" width="650" height="600"></canvas>
+    <script>
+        var x=100,y=90,x_axis = 50,position_y=385,position_x = 120,
+        rect_width=50,rect_height=80,rect_x=110,rect_y=380
+        var can = document.getElementById("can")
+        var ctx = can.getContext("2d")
+        var xhr = new XMLHttpRequest()
+        ctx.beginPath()
+        ctx.moveTo(x,y+10)
+        ctx.lineTo(x,y+370)
+        ctx.moveTo(x,y+370)
+        ctx.lineTo(x+480,y+370)
+        function sort1(fun1,fun2){
+            if(fun1.casesHandled < fun2.casesHandled)
+            return -1
+        }
+
+        function show(evt){
+            var h = new Array()
+            if(evt.target.readyState === 4){
+                var objectJSON = JSON.parse(evt.target.responseText)
+                objectJSON.data.sort(sort1)
+                objectJSON.data.forEach(val=>{
+                    h.push(val.col)
+                    
+                    ctx.beginPath()
+                    ctx.fillRect(rect_x,rect_y,rect_width,rect_height)
+                    ctx.fillStyle = h[0]
+                    ctx.fillRect(rect_x+90,rect_y-55,rect_width,rect_height+55)
+                    ctx.fillStyle = h[1]
+                    ctx.fillRect(rect_x+160,rect_y-100,rect_width,rect_height+100)
+                    ctx.fillStyle = h[2]
+                    ctx.fillRect(rect_x+240,rect_y-155,rect_width,rect_height+155)
+                    ctx.fillStyle = h[3]
+                    ctx.fillRect(rect_x+330,rect_y-195,rect_width,rect_height+195)
+                    ctx.fillStyle = h[4]
+                    ctx.fillRect(rect_x+400,rect_y-245,rect_width,rect_height+245)
+                    ctx.fillStyle = h[5]
+                    ctx.fillText(0,x-18,y+370)
+
+                    ctx.fillText(val.casesHandled,x-18,position_y)
+                    position_y -=52
+                    ctx.fillText(val.agentName,position_x,y+390)
+                    position_x+=80
+                    ctx.closePath()
+                })
+            }
+            
+        }
+        
+
+        xhr.addEventListener("readystatechange",show)
+        function init(){
+            xhr.open("get","data/data.json",true)
+            xhr.send()
+        }
+
+        ctx.fill()
+        ctx.closePath()
+        ctx.stroke()
+        document.addEventListener("DOMContentLoaded",init)
+    </script>
+</body>
+</html>
