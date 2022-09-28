@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        #pong {
+            background-color: black;
+            height: 500px;
+            width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #user-pedal {
+            height: 100px;
+            width: 20px;
+            background-color: blue;
+            position: absolute;
+        }
+
+        #ai-pedal {
+            height: 100px;
+            width: 20px;
+            right: 0;
+            background-color: red;
+            position: absolute;
+        }
+
+        #ball {
+            left: 200px;
+            height: 30px;
+            width: 30px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="pong">
+
+        <div id="user-pedal"></div>
+
+        <div id="ai-pedal"></div>
+
+        <div id="ball"></div>
+
+    </div>
+    <script>
+        var $a = $("#pong")
+        var $playerPedal = $("#user-pedal")
+        var $ball = $("#ball")
+        // console.log($a.offset().top)
+
+        var $aiPedal = $("#ai-pedal")
+
+        const aiPedalSettings = {
+            direction: 1,
+            speed: 3,
+            top: 0
+        }
+        const ballSettings = {
+            direction: 1,
+            speed: 3,
+            left: 0
+        }
+
+        $a.mousemove(function (evt) {
+            const top = Math.min(
+                $a.height() - $playerPedal.height(),
+                evt.pageY - $a.offset().top)
+            $playerPedal.css({
+                top: `${top}px`
+            })
+        })
+
+        function aiMove() {
+
+            aiPedalSettings.top += aiPedalSettings.direction * aiPedalSettings.speed
+            if (aiPedalSettings.top > $a.height() - $aiPedal.height()) {
+                aiPedalSettings.direction = -1
+            }
+            if (aiPedalSettings.top < 0) {
+                aiPedalSettings.direction = 1
+
+            }
+
+            $aiPedal.css({
+                top: `${aiPedalSettings.top}px`
+            })
+
+
+        }
+
+        function ballMove() {
+            ballSettings.left += ballSettings.direction * ballSettings.speed
+            console.log($playerPedal.width(),ballSettings.left)
+            
+            if (ballSettings.left > $a.width() - $playerPedal.width()) {
+                ballSettings.direction = -1
+            }
+            if (ballSettings.left < 0) {
+                ballSettings.direction = 1
+
+            }
+            $ball.css({
+                left:`${ballSettings.left}px`
+            })
+
+        }
+
+        setInterval(aiMove, 5)
+        setInterval(ballMove,10)
+    </script>
+</body>
+
+</html>
