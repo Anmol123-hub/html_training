@@ -11,8 +11,8 @@
     <style>
         #pong {
             background-color: black;
-            height: 500px;
-            width: 600px;
+            height: 800px;
+            max-width: 100%;
             margin: 0 auto;
             position: relative;
         }
@@ -73,25 +73,24 @@
          $("#scoreAi").text(score)
          $("#scoreUser").text(score1)
 
+         const top_ball = 900
         const top_left = -3 * Math.PI / 4
         const bottom_left = 3 * Math.PI / 4
         const top_right = -Math.PI / 4
         const bottom_right = Math.PI / 4
 
-        // console.log($a.offset().top)
-
         var $aiPedal = $("#ai-pedal")
 
         const aiPedalSettings = {
             direction: 1,
-            speed: 10,
+            speed: 100,
             top: 0
         }
         const ballSettings = {
-            angle: bottom_right,
+            angle: bottom_left,
             height: 20,
-            speed: 15,
-            left: 200,
+            speed: 5,
+            left: top_ball,
             top: 200
         }
         moveWithin()
@@ -136,7 +135,7 @@
                 $("#scoreAi").text(++score)
                 ballSettings.angle = bottom_left
                 ballSettings.top = 200
-                ballSettings.left = 200
+                ballSettings.left = top_ball
                 if(score == 3){
                     clearInterval(ballM)
                     clearInterval(aiP)
@@ -151,7 +150,7 @@
                 $("#scoreUser").text(++score1)
                 ballSettings.angle = bottom_left
                 ballSettings.top = 200
-                ballSettings.left = 200
+                ballSettings.left = top_ball
                 if(score1 == 3){
                     clearInterval(ballM)
                     clearInterval(aiP)
@@ -220,12 +219,12 @@
             
         }
         function Userwinner(){
-            return( ballSettings.left > $a.width())
+            return( ballSettings.left > $a.width() -ballSettings.height)
             // console.log(t)
             
         }
 
-       aiP =  setInterval(aiMove, 10)
+       aiP =  setInterval(aiMove, 5)
        ballM =  setInterval(ballMove, 1)
     </script>
 </body>
