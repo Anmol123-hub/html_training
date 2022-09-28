@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ping Pong</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <script src="lib/jquery-min.js"></script>
     <style>
         #pong {
             background-color: black;
@@ -34,6 +34,8 @@
 
         #ball {
             left: 200px;
+            display: block;
+            margin: auto;
             height: 30px;
             width: 30px;
             background-color: yellow;
@@ -56,35 +58,60 @@
         <div id="ball"></div>
 
     </div>
+        userscore<div id="scoreUser"></div>
+        aiscore<div id="scoreAi"></div>
+
     <script>
-        var $a = $("#pong")
+
+
+
+        var $a = $("#pong"),ballM = null,aiP =null
         var $playerPedal = $("#user-pedal")
         var $ball = $("#ball")
+        var score = 0
+        var score1 = 0
+         $("#scoreAi").text(score)
+         $("#scoreUser").text(score1)
+
+        const top_left = -3 * Math.PI / 4
+        const bottom_left = 3 * Math.PI / 4
+        const top_right = -Math.PI / 4
+        const bottom_right = Math.PI / 4
+
         // console.log($a.offset().top)
 
         var $aiPedal = $("#ai-pedal")
 
         const aiPedalSettings = {
             direction: 1,
-            speed: 3,
+            speed: 10,
             top: 0
         }
         const ballSettings = {
-            direction: 1,
-            speed: 3,
-            left: 0
+            angle: bottom_right,
+            height: 20,
+            speed: 15,
+            left: 200,
+            top: 200
         }
+        moveWithin()
+
+        function moveWithin(){
 
         $a.mousemove(function (evt) {
             const top = Math.min(
                 $a.height() - $playerPedal.height(),
                 evt.pageY - $a.offset().top)
+
+            // console.log(evt.pageY,$a.offset().top,evt.pageY - $a.offset().top)
             $playerPedal.css({
                 top: `${top}px`
             })
         })
+    }
 
         function aiMove() {
+
 
             aiPedalSettings.top += aiPedalSettings.direction * aiPedalSettings.speed
             if (aiPedalSettings.top > $a.height() - $aiPedal.height()) {
@@ -98,29 +125,108 @@
             $aiPedal.css({
                 top: `${aiPedalSettings.top}px`
             })
-
-
         }
 
         function ballMove() {
-            ballSettings.left += ballSettings.direction * ballSettings.speed
-            console.log($playerPedal.width(),ballSettings.left)
-            
-            if (ballSettings.left > $a.width() - $playerPedal.width()) {
-                ballSettings.direction = -1
-            }
-            if (ballSettings.left < 0) {
-                ballSettings.direction = 1
+            ballSettings.top += ballSettings.speed * Math.sin(ballSettings.angle)
+            ballSettings.left += ballSettings.speed * Math.cos(ballSettings.angle)
 
+            if(Aiwinner()){
+                
+                $("#scoreAi").text(++score)
+                ballSettings.angle = bottom_left
+                ballSettings.top = 200
+                ballSettings.left = 200
+                if(score == 3){
+                    clearInterval(ballM)
+                    clearInterval(aiP)
+                    setTimeout(()=>{
+                        alert("AI win")
+                    },200)
+
+                }
             }
+            if(Userwinner()){
+                
+                $("#scoreUser").text(++score1)
+                ballSettings.angle = bottom_left
+                ballSettings.top = 200
+                ballSettings.left = 200
+                if(score1 == 3){
+                    clearInterval(ballM)
+                    clearInterval(aiP)
+                    setTimeout(()=>{
+                        alert("User win")
+                    },200)
+
+                }
+                // console.log("saf")
+            }
+
+            if (ballPlayerPad()) {
+                if (ballSettings.angle === top_left)
+                    ballSettings.angle = bottom_right
+                if (ballSettings.angle === bottom_left)
+                    ballSettings.angle = top_right
+            }
+            if (onTop()) {
+                if (ballSettings.angle === top_right)
+                    ballSettings.angle = bottom_right
+                if (ballSettings.angle === top_left)
+                    ballSettings.angle = bottom_left
+            }
+            if (onBottom()) {
+                if (ballSettings.angle === bottom_right)
+                    ballSettings.angle = top_right
+                if (ballSettings.angle === bottom_left)
+                    ballSettings.angle = top_left
+            }
+            if (ballPlayerAi()) {
+                if (ballSettings.angle === bottom_left)
+                    ballSettings.angle = top_left
+                if (ballSettings.angle === bottom_right)
+                    ballSettings.angle = top_left
+                if(ballSettings.angle === top_right)
+                    ballSettings.angle = top_left
+            }
+
+
             $ball.css({
-                left:`${ballSettings.left}px`
+                top: `${ballSettings.top}px`,
+                left: `${ballSettings.left}px`
             })
 
         }
 
-        setInterval(aiMove, 5)
-        setInterval(ballMove,10)
+        function ballPlayerPad() {
+            var jk = $ball.collision($playerPedal)
+            return $(jk[0]).attr("id") === "user-pedal"
+        }
+        function ballPlayerAi() {
+
+            var jk = $ball.collision($aiPedal)
+
+            return $(jk[0]).attr("id") === "ai-pedal"
+        }
+        function onTop() {
+            return ballSettings.top <= 0
+        }
+        function onBottom() {
+            return ballSettings.top > $a.height() - ballSettings.height
+
+        }
+        function Aiwinner(){
+            return ballSettings.left <=0
+            
+        }
+        function Userwinner(){
+            return( ballSettings.left > $a.width())
+            // console.log(t)
+            
+        }
+
+       aiP =  setInterval(aiMove, 10)
+       ballM =  setInterval(ballMove, 1)
     </script>
 </body>
 
