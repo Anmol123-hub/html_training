@@ -1,0 +1,55 @@
+#pong {
+    background-color: black;
+    height: 500px;
+    /* max-width: 100%; */
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#user-pedal {
+    height: 100px;
+    width: 20px;
+    background-color: blue;
+    position: absolute;
+}
+
+#ai-pedal {
+    height: 100px;
+    width: 20px;
+    right: 0;
+    background-color: red;
+    position: absolute;
+}
+
+#ball {
+    left: 200px;
+    display: block;
+    margin: auto;
+    height: 30px;
+    width: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+}
+
+#bullet {
+    display: none;
+    left: 1px;
+    margin: 40px;
+    width: 50px;
+    position: absolute;
+    height: 3px;
+    background-color: aliceblue;
+}
+
+#bullet1 {
+    display: none;
+    right: 0;
+    margin: 40px;
+    width: 50px;
+    position: absolute;
+    height: 3px;
+    background-color: aliceblue;
+}
