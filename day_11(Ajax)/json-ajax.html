@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            display: block;
+            width: 641px;
+            margin: auto;
+        }
+       .container {
+            width: 641px;
+           
+            background-color: burlywood;
+            margin: 10px auto;
+            display: table;
+            text-align: justify;
+        }
+        .container div {
+            
+            color: white;
+            float: left;
+            
+            text-align: center;
+            
+            margin: 10px;
+            width: 300px;
+            background-color: blueviolet;
+        }
+        .container div:hover {
+            background-color: darkblue;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest()
+        function show(evt){
+            if(evt.target.readyState === 4){
+                var objectJSON = JSON.parse(evt.target.responseText)
+                objectJSON.root.participant.forEach(val=>{
+                    document.getElementsByTagName("div")[0].innerHTML+=document.getElementById("anmol").innerHTML
+                    .replace("{firstname}",val.firstname)
+                    .replace("{lastname}",val.lastname)
+                    .replace("{email}",val.email)
+                    .replace("{city}",val.city)
+                })
+            }
+        }
+        xhr.addEventListener("readystatechange",show)
+
+        function btnClick(){
+            xhr.open("get","data.json",true)
+            xhr.send()
+        }
+
+        function init(){
+            document.getElementsByTagName("button")[0].addEventListener("click",btnClick)
+        }
+        document.addEventListener("DOMContentLoaded",init)
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <div class="container">
+        <template id="anmol">
+            <div>
+                <h3>{firstname} {lastname}</h3>
+                <h4>eMail- {email}</h4>
+                <h5>city - {city}</h5>
+            </div>
+        </template>
+    </div>
+</body>
+</html>

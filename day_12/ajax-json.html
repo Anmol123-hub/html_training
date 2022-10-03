@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery-3.6.1.js"></script>
+    <style>
+        .container{
+            margin: auto;
+            display: block;
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        let promise = null
+        $(()=>{
+            promise = $.getJSON("data.json")
+            promise.done((r,s,x)=>{
+                $(r.root.participant).each((idx,val)=>{
+                    $(".container").append("<p>"+val.firstname+"</p>")
+                })
+            })
+            
+               // $(".container").text(JSON.stringify(res))
+            
+        })
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+    </div>
+    
+</body>
+</html>

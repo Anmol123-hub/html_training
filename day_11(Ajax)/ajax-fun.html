@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <style>
+        button {
+            margin: auto;
+            display: block;
+            width: 500px;
+        }
+
+        .container {
+            width: 500px;
+            height: 200px;
+            background-color: burlywood;
+            margin: 10px auto;
+            overflow: auto;
+            text-align: justify;
+        }
+
+        .container div {
+            color: white;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            margin: 15px;
+            background-color: blueviolet;
+        }
+
+
+        .container div:focus {
+            background-color: aqua;
+        }
+        .container div:hover {
+            background-color: darkblue;
+        }
+    </style>
+    <script>
+        var xhr = null
+        xhr = new XMLHttpRequest()
+        function show() {
+            console.log(xhr.readyState)
+            if (xhr.readyState === 4) {
+                //document.getElementsByClassName("container")[0].textContent = xhr.responseText
+                // xhr.responseXML.getElementsByTagName("participant")[0].getElementsByTagName("firstname")[0].firstChild.children[1].nodeValue
+                for (var i = 0; i < xhr.responseXML.getElementsByTagName("participant").length; i++) {
+                    var a = xhr.responseXML.getElementsByTagName("participant")[i]
+                    document.getElementsByTagName("div")[0].innerHTML += document.getElementById("anmol").innerHTML
+                        .replace("{firstname}", a.querySelector("firstname").textContent)
+                        .replace("{lastname}", a.querySelector("lastname").textContent)
+                    // `
+                    // <div>${.querySelector("firstname").textContent}</div>
+                    // ` 
+                }
+
+            }
+        }
+
+
+        function getData() {
+            xhr.open("get", "data.xml", false)
+            xhr.send()
+        }
+
+        function init() {
+
+            xhr.addEventListener("readystatechange", show)
+            document.getElementsByTagName("button")[0].addEventListener("click", getData)
+
+        }
+        document.addEventListener("DOMContentLoaded", init)
+    </script>
+</head>
+
+<body>
+    <button>
+        Get data
+    </button>
+    <div class="container">
+        <template id="anmol">
+            <div>
+                <h3>{firstname} {lastname}</h3>
+            </div>
+        </template>
+    </div>
+
+</body>
+
+</html>
