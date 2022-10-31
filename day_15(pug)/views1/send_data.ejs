@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero List</title>
+</head>
+<body>
+    <form action="/" method="post">
+        Anmol
+        <label for="fruits"> Please enter fruit name
+            <input type="text" name="fruits" id="fruits">
+        </label>
+        <button type="submit">Generate the fruits</button>
+
+    </form>
+    <ol>
+        <% fruits.forEach((idx) =>{ %>
+            <li><%= idx %> </li>
+        <% }) %>
+
+    </ol>
+</body>
+</html>
